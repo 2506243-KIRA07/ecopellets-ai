@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EcoPellets AI System</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #eef7f0;
+    color: #1b3d1b;
+}
+header {
+    background: #2e7d32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.container {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+button {
+    background: #1b5e20;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+.result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f4f9f4;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>EcoPellets – AI Recommendation Engine</h1>
+<p>Soil • Crop • Pest Decision Support System</p>
+</header>
+
+<div class="container">
+
+<label>Soil Type</label>
+<select id="soil">
+<option value="">Select soil</option>
+<option>Clay</option>
+<option>Sandy</option>
+<option>Loamy</option>
+<option>Laterite</option>
+<option>Black</option>
+</select>
+
+<label>Crop Type</label>
+<select id="crop">
+<option value="">Select crop</option>
+<option>Rice</option>
+<option>Vegetables</option>
+<option>Fruit plants</option>
+<option>Pulses</option>
+<option>Plantation crops</option>
+<option>Flowers</option>
+</select>
+
+<label>Pest Type</label>
+<select id="pest">
+<option value="">Select pest</option>
+<option>Aphids</option>
+<option>Caterpillars</option>
+<option>Whiteflies</option>
+<option>Root grubs</option>
+<option>Termites</option>
+<option>Soil nematodes</option>
+</select>
+
+<button onclick="getRecommendation()">Get Recommendation</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+<script>
+function getRecommendation() {
+    let soil = document.getElementById("soil").value;
+    let crop = document.getElementById("crop").value;
+    let pest = document.getElementById("pest").value;
+
+    if (!soil || !crop || !pest) {
+        document.getElementById("result").innerHTML =
+            "⚠️ Please select soil, crop, and pest type.";
+        return;
+    }
+
+    document.getElementById("result").innerHTML =
+        `<b>AI Recommendation:</b><br>
+        Use EcoPellets bio-fertilizer suitable for <b>${soil}</b> soil.<br>
+        Recommended for <b>${crop}</b> crops.<br>
+        Effective organic pest control for <b>${pest}</b>.`;
+}
+</script>
+
+</body>
+</html>
